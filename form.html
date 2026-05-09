@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário Pós-Operatório</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-ios: oklch(97% 0.01 250);
+            --surface-ios: oklch(100% 0 0);
+            --fg-ios: oklch(20% 0.02 70);
+            --muted-ios: oklch(60% 0.015 250);
+            --border-ios: oklch(94% 0.012 80);
+            --accent-ios: oklch(65% 0.22 45);
+            --accent-fg-ios: oklch(100% 0 0);
+            --font-display: 'Newsreader', Georgia, serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-ios);
+            color: var(--fg-ios);
+            font-family: var(--font-body);
+            margin: 0;
+            line-height: 1.5;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .header {
+            background-color: var(--surface-ios);
+            padding: 44px 20px 20px 20px;
+            border-bottom: 0.5px solid var(--border-ios);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 500;
+            margin: 0 0 4px 0;
+        }
+        
+        .header p {
+            font-size: 15px;
+            color: var(--muted-ios);
+            margin: 0;
+        }
+        
+        form {
+            padding: 24px 0;
+        }
+
+        fieldset {
+            border: none;
+            padding: 0;
+            margin: 0 0 35px 0;
+        }
+
+        legend {
+            font-family: var(--font-body);
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--fg-ios);
+            padding: 0 20px;
+            margin-bottom: 12px;
+        }
+
+        .form-group {
+            background-color: var(--surface-ios);
+            border-top: 0.5px solid var(--border-ios);
+            border-bottom: 0.5px solid var(--border-ios);
+        }
+        
+        .form-group .row {
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 14px 20px;
+            cursor: pointer;
+        }
+
+        .form-group .row:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 20px;
+            right: 0;
+            height: 0.5px;
+            background-color: var(--border-ios);
+        }
+
+        input[type="radio"], input[type="checkbox"] {
+            display: none;
+        }
+
+        .row label {
+            flex-grow: 1;
+            font-size: 16px;
+        }
+        
+        .check-icon {
+            display: none;
+            width: 24px;
+            height: 24px;
+            stroke-width: 2;
+            color: var(--accent-ios);
+        }
+
+        input[type="radio"]:checked + label + .check-icon,
+        input[type="checkbox"]:checked + label + .check-icon {
+            display: block;
+        }
+
+        textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 14px 20px;
+            border: none;
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.5;
+            min-height: 120px;
+            background: transparent;
+            resize: vertical;
+        }
+        textarea:focus {
+            outline: none;
+        }
+        textarea::placeholder {
+            color: var(--muted-ios);
+        }
+
+        .button-container {
+            padding: 0 20px;
+            margin-top: 20px;
+        }
+
+        button {
+            width: 100%;
+            padding: 16px;
+            background-color: var(--accent-ios);
+            color: var(--accent-fg-ios);
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.1s ease, background-color 0.2s;
+        }
+        button:hover {
+            background-color: oklch(from var(--accent-ios) l c h / 0.9);
+        }
+        button:active {
+            transform: scale(0.97);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Relatório Diário</h1>
+        <p>Acompanhamento Pós-Operatório</p>
+    </div>
+
+    <form action="#" method="post">
+        <fieldset>
+            <legend>Qual seu nível de dor/incômodo?</legend>
+            <div class="form-group">
+                <div class="row" onclick="document.getElementById('dor1').checked = true;">
+                    <input type="radio" id="dor1" name="dor_level" value="1"><label for="dor1">Sem incômodo</label>
+                    <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <div class="row" onclick="document.getElementById('dor2').checked = true;">
+                    <input type="radio" id="dor2" name="dor_level" value="2"><label for="dor2">Levemente incomodado</label>
+                     <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <div class="row" onclick="document.getElementById('dor3').checked = true;">
+                    <input type="radio" id="dor3" name="dor_level" value="3">
+                    <label for="dor3">Dolorido em momentos pontuais</label>
+                     <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <div class="row" onclick="document.getElementById('dor4').checked = true;">
+                    <input type="radio" id="dor4" name="dor_level" value="4"><label for="dor4">Dolorido de forma constante</label>
+                     <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                 <div class="row" onclick="document.getElementById('dor5').checked = true;">
+                    <input type="radio" id="dor5" name="dor_level" value="5"><label for="dor5">Sentindo dor</label>
+                     <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Descreva a dor/incômodo (opcional)</legend>
+            <div class="form-group">
+                <textarea name="dor_descricao" placeholder="Ex: Dor moderada na região abdominal ao me levantar..."></textarea>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Como foi sua noite de sono?</legend>
+            <div class="form-group">
+                <div class="row" onclick="document.getElementById('sono1').checked = true;"><input type="radio" id="sono1" name="sono" value="1"><label for="sono1">Demorei a dormir, mas descansei</label> <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+                <div class="row" onclick="document.getElementById('sono2').checked = true;"><input type="radio" id="sono2" name="sono" value="2"><label for="sono2">Demorei a dormir e tive despertares</label> <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+                <div class="row" onclick="document.getElementById('sono3').checked = true;"><input type="radio" id="sono3" name="sono" value="3"><label for="sono3">Dormi rápido e a noite toda</label> <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+                <div class="row" onclick="document.getElementById('sono4').checked = true;"><input type="radio" id="sono4" name="sono" value="4"><label for="sono4">Dormi rápido, mas acordei na madrugada</label> <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+            </div>
+        </fieldset>
+        
+        <div class="button-container">
+            <button type="submit">Enviar Relatório Diário</button>
+        </div>
+    </form>
+</body>
+</html>
